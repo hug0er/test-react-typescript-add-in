@@ -43,6 +43,12 @@ const Attachment: React.FC<AttachmentProps> = ({
       const zip = new JSZip(content);
       const doc = new Docxtemplater().loadZip(zip);
       const text = doc.getFullText();
+
+      // const zip2 = new AdmZip(buffer);
+      // yauzl.fromBuffer(buffer, (err, file) => {
+      //   console.log(err, file);
+      // });
+      // console.log(text);
       console.log("keys", Object.keys(zip.files).length, zip.comment);
       let cnt = 1;
       for (const i in zip.files) {
@@ -86,7 +92,43 @@ const Attachment: React.FC<AttachmentProps> = ({
       console.log("hola mundo");
     };
     reader.readAsText(blob);
+
+    // getDocumentProperties.fromBuffer(buffer, function (err, data) {
+    //   if (err) throw err;
+    //   console.log(data);
+    //   /*
+    //   {
+    //     application: 'Microsoft Macintosh PowerPoint',
+    //     applicationVersion: '15.0027',
+    //     comments: 'This is an example document for testing the retrieval of document properties.',
+    //     company: 'Acme',
+    //     created: '2017-10-13T15:54:58Z',
+    //     createdBy: 'Microsoft Office User',
+    //     keywords: 'Example Sample Test Properties',
+    //     manager: 'Jane Doe',
+    //     modified: '2017-10-13T19:27:15Z',
+    //     modifiedBy: 'Microsoft Office User',
+    //     notes: 0,
+    //     paragraphs: 2,
+    //     revision: 3,
+    //     slides: 1,
+    //     subject: 'Example',
+    //     title: 'Test PowerPoint Document',
+    //     totalTime: 2,
+    //     words: 8
+    //   }
+    //   */
+    // });
   });
+  //   const item = Office.context.mailbox.item;
+  //   const options = { asyncContext: { currentItem: item } };
+  //   item.getAttachmentsAsync(options, (result) => {
+  //     if (result.value.length > 0) {
+  //       for (let i = 0; i < result.value.length; i++) {
+  //         result.asyncContext.currentItem.getAttachmentContentAsync(result.value[i].id);
+  //       }
+  //     }
+  //   });
   return (
     <div>
       <div>{`Nombre: ${name}`}</div>
