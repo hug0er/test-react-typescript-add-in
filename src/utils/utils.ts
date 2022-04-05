@@ -13,7 +13,7 @@ export const toPromise = <T>(
 };
 
 export const evaluateIncludesInList = (array: string[], str: string): boolean => {
-  for (const item in array) {
+  for (const item of array) {
     if (str.includes(item)) return true;
   }
 

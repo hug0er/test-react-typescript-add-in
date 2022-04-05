@@ -16,7 +16,9 @@ const Attachment: React.FC<AttachmentProps> = ({ attachment }) => {
 
   return (
     <div>
-      <div>{`Nombre: ${name}`}</div>
+      <div>
+        <strong>{`Nombre: ${name}`}</strong>
+      </div>
       <div>{`ID: ${id}`}</div>
       <div>{`Tamano del archivo: ${size} bytes`}</div>
       <div>{`Tipo del archivo: ${attachmentType}`}</div>
