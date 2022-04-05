@@ -46,11 +46,13 @@ const getOfficeDocClassification = (base64Content: string) => {
   const text = window.atob(base64Content); //base64 to rawText
   const zip = new JSZip(text);
   const doc = new Docxtemplater().loadZip(zip);
+  console.log("resulado del doc", doc.getFullText());
   const pixelClassification = getClassificationByText(doc.getFullText());
   if (pixelClassification) return pixelClassification; // This is to evaluate if classification exists can be null for
   const propertyDocument = zip.files["docProps/custom.xml"];
-  const propertyClassification = getClassificationByText(propertyDocument.asText(), false); // Is not from pixel this is important due to the text in document can contain similar spelling than custom properties
-  return propertyClassification; // can be null
+  if (propertyDocument) return getClassificationByText(propertyDocument.asText(), false); // Is not from pixel this is important due to the text in document can contain similar spelling than custom properties
+  // can be null
+  return null;
 };
 
 const getClassificationByText = (str: string, isPixel = true): ClassificationType => {
