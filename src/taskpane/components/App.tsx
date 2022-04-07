@@ -6,6 +6,7 @@ import Progress from "./Progress";
 import { useState } from "react";
 import Profile from "./Profile";
 import Read from "../read";
+import Attachments from "../../taskpane/components/organisms/Attachments";
 
 /* global require */
 
@@ -55,13 +56,7 @@ const App: React.FC<AppProps> = (props) => {
     <div className="ms-welcome">
       <Header logo={require("./../../../assets/logo-filled.png")} title={props.title} message="Welcome" />
       <Profile />
-      <Read />
-      {/* <p className="ms-font-l">
-        Ejemplo leer correos <b>Run</b>.
-      </p>
-      <DefaultButton className="ms-welcome__action" iconProps={{ iconName: "ChevronRight" }} onClick={click}>
-        Run
-      </DefaultButton> */}
+      <Attachments />
     </div>
   );
 };
